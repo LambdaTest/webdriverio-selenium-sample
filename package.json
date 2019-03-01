@@ -1,0 +1,38 @@
+{
+  "name": "webdriverio-lambdatest",
+  "version": "0.1.0",
+  "readme": "WendriverIO Integration with [LambdaTest](https://www.lambdatest.com)",
+  "description": "Selenium examples for WebdriverIO and LambdaTest Selenium Grid",
+  "scripts": {
+    "test": "npm run single && npm run local && npm run parallel",
+    "single": "./node_modules/.bin/wdio conf/single.conf.js",
+    "parallel": "./node_modules/.bin/wdio conf/parallel.conf.js",
+    "multiple": "./node_modules/.bin/wdio conf/multiple.conf.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lambdatest/webdriverio-selenium-sample.git"
+  },
+  "keywords": [
+    "webdriverio",
+    "lambdatest",
+    "automation",
+    "selenium",
+    "tests"
+  ],
+  "bugs": {
+    "url": "https://github.com/lambdatest/webdriverio-selenium-sample/issues"
+  },
+  "homepage": "https://github.com/lambdatest/webdriverio-selenium-sample#readme",
+  "dependencies": {
+    "chai": "*",
+    "mocha": "^6.0.2",
+    "webdriverio": "^5.6.2"
+  },
+  "devDependencies": {
+    "@wdio/mocha-framework": "^5.6.0",
+    "@wdio/cli": "*",
+    "@wdio/local-runner": "*",
+    "@wdio/sync": "*"
+  }
+}
