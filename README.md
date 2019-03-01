@@ -1,5 +1,5 @@
 # webdriverio-lambdatest-sample
-[WebdriverIO](http://webdriver.io/) Integration with LambdaTest
+[WebdriverIO 5.6.2](http://webdriver.io/) Integration with LambdaTest
 
 ![LambdaTest Logo](https://www.lambdatest.com/images/logo.svg)
 
