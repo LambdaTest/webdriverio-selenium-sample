@@ -8,6 +8,6 @@ describe('Google Search Function', () => {
       input.setValue('test123');
 
       const title = browser.getTitle();
-      assert.equal(title, 'Google');
+        assert.equal(title, 'Google');
   });
-}); 
+});

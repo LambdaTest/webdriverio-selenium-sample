@@ -32,7 +32,7 @@ exports.config = {
     browserName: 'internet explorer',
     version:"11.0",
   },
-  
+
 ],
 
   logLevel: 'info',
@@ -45,6 +45,14 @@ exports.config = {
   path: '/wd/hub',
   hostname: 'hub.lambdatest.com',
   port: 80,
+
+  beforeSession: function (config, capabilities, specs) {
+    capabilities.name=specs[0].split(/(\\|\/)/g).pop() || undefined;
+    },
+    after: function (result, capabilities, specs) {
+      driver.execute("lambda-status=".concat(result==0?"passed":"failed"),undefined);
+    },
+
   framework: 'mocha',
   mochaOpts: {
       ui: 'bdd'
