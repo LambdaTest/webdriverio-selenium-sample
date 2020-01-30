@@ -35,7 +35,7 @@
 
 ## Running your tests
 - To run a single test, run `npm run single`
-- To run local tests, run `npm run local`
+- To run mutiple tests, run `npm run multiple`
 - To run parallel tests, run `npm run parallel`
 
  Know how many concurrent sessions needed by using our [Concurrency Test Calculator](https://www.lambdatest.com/concurrency-calculator?ref=github)
