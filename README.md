@@ -1,4 +1,4 @@
-# webdriverio-selenium-sample
+# LambdaTest distributed grid with webdriverio
 [WebdriverIO 5.6.2](http://webdriver.io/) Integration with LambdaTest
 
 ![LambdaTest Logo](https://www.lambdatest.com/images/logo.svg)
