@@ -1,9 +1,9 @@
 exports.config = {
   services: [
     [
-      "lambdatest",
+      "kl",
       {
-        tunnel: false,
+        tunnel: true,
         lambdatestOpts: {
           logFile: "tunnel.log"
         }
