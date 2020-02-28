@@ -4,7 +4,7 @@
   "readme": "WendriverIO Integration with [LambdaTest](https://www.lambdatest.com)",
   "description": "Selenium examples for WebdriverIO and LambdaTest Selenium Grid",
   "scripts": {
-    "test": "npm run single && npm run local && npm run parallel",
+    "test": "npm run single && npm run parallel && npm run multiple",
     "single": "./node_modules/.bin/wdio conf/single.conf.js",
     "parallel": "./node_modules/.bin/wdio conf/parallel.conf.js",
     "multiple": "./node_modules/.bin/wdio conf/multiple.conf.js"

@@ -1,7 +1,7 @@
 exports.config = {
   services: [
     [
-      "lambdatest",
+      "kl",
       {
         tunnel: true,
         lambdatestOpts: {
