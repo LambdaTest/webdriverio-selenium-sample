@@ -34,6 +34,6 @@
     "@wdio/local-runner": "*",
     "@wdio/mocha-framework": "^5.6.0",
     "@wdio/sync": "*",
-    "wdio-kl-service": "^1.0.1"
+    "wdio-lambdatest-service": "^1.0.0"
   }
 }
