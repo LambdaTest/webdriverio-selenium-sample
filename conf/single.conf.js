@@ -23,8 +23,8 @@ exports.config = {
       build: "build 1",
       network: false,
       video: true,
-      visual: true,
-      console: true
+      visual: false,
+      console: false
     }
   ],
   logLevel: "info",
