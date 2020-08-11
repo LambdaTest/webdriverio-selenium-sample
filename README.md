@@ -172,7 +172,7 @@ set LT_ACCESS_KEY="YOUR ACCESS KEY"`
 The test script will do the following actions:
 1. Invoke the browser launch.
 2. Go to www.google.com. 
-3. Type LambdaTest in the search box.
+3. Type test123 in the search box.
 4. Fetch the title of the web page.
 5. Close the browser and display the fetched title in the console.
 
