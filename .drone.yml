@@ -5,8 +5,17 @@ trigger:
   event:
   - push
 steps:
+- name: Tunnel
+  image: lambdatest/tunnel
+  commands:
+  - from_secret: LT_USERNAME
+  - from_secret: LT_ACCESS_KEY
+  - docker run -it --name lt lambdatest/tunnel -user from_secret: LT_USERNAME -key from_secret: LT_ACCESS_KEY
+steps:
 - name: build
   image: node
   commands:
+  - from_secret: LT_USERNAME
+  - from_secret: LT_ACCESS_KEY
   - npm install
   - npm run single
