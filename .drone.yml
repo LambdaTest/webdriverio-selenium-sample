@@ -11,7 +11,6 @@ trigger:
 steps: 
 - name: build
   image: node
-  secrets: [LT_USERNAME, LT_ACCESS_KEY]
   commands:
   - export LT_USERNAME= $USERNAME
   - export LT_ACCESS_KEY= $PASSWORD
