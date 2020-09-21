@@ -22,10 +22,6 @@ steps:
   - chmod +x /LT
   - ls
   - /LT -user $USERNAME -key $PASSWORD &
-  - curl https://get.docker.io/builds/Linux/x86_64/docker-latest -o /usr/local/bin/docker
-  - chmod +x /usr/local/bin/docker 
-  - docker pull lambdatest/tunnel
-  - docker run -it --name lt lambdatest/tunnel -user $USERNAME -key $PASSWORD
   
 - name: Test
   image: node
