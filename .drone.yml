@@ -1,16 +1,16 @@
 kind: pipeline
-type: docker
 name: Build
 trigger:
   event:
   - push
 steps:
 - name: Tunnel
+  type: docker
   image: lambdatest/tunnel
   secrets: [LT_USERNAME, LT_ACCESS_KEY]
   commands:
   - ls
-  - pwd
+  - docker run -it  lambdatest/tunnel -v
   - ./LT -user $LT_USERNAME -key $LT_ACCESS_KEY
   
 - name: build
