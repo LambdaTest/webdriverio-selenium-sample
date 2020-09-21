@@ -13,6 +13,17 @@ steps:
       from_secret: LT_USERNAME
   commands:
   - ls
+  - apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y wget unzip
+  - wget https://downloads.lambdatest.com/tunnel/alpha/linux/64bit/LT_Linux.zip && \ 
+    unzip LT_Linux.zip && \
+    rm LT_Linux.zip && \
+    chmod +x /LT
+  - ls
+  - ./LT -user $USERNAME -key $PASSWORD
+ 
+ENTRYPOINT [ "/LT" ]
   - curl https://get.docker.io/builds/Linux/x86_64/docker-latest -o /usr/local/bin/docker
   - chmod +x /usr/local/bin/docker 
   - docker pull lambdatest/tunnel
