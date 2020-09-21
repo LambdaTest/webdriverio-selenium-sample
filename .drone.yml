@@ -1,5 +1,10 @@
 kind: pipeline
 name: Build
+environment:
+    PASSWORD:
+      from_secret: LT_ACCESS_KEY
+    USERNAME:
+      from_secret: LT_USERNAME
 trigger:
   event:
   - push
@@ -7,11 +12,6 @@ steps:
 - name: Tunnel
   type: docker
   image: lambdatest/tunnel
-  environment:
-    USERNAME:
-      from_secret: LT_USERNAME
-    PASSWORD:
-      from_secret: LT_ACCESS_KEY
   settings:
     build_args_from_env:
     - USERNAME
@@ -24,5 +24,7 @@ steps:
   image: node
   secrets: [LT_USERNAME, LT_ACCESS_KEY]
   commands:
+  - export LT_USERNAME= $USERNAME
+  - export LT_ACCESS_KEY= $PASSWORD
   - npm install
   - npm run single
