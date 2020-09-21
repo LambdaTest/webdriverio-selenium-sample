@@ -6,13 +6,19 @@ trigger:
 steps:
 - name: Tunnel
   type: docker
-  pull: if-not-exists
   image: lambdatest/tunnel
-  secrets: [LT_USERNAME, LT_ACCESS_KEY]
+  environment:
+    USERNAME:
+      from_secret: LT_USERNAME
+    PASSWORD:
+      from_secret: LT_ACCESS_KEY
+  settings:
+    build_args_from_env:
+    - USERNAME
+    - PASSWORD
   commands:
   - ls
-  - docker run -it  lambdatest/tunnel -v
-  - ./LT -user $LT_USERNAME -key $LT_ACCESS_KEY
+  - ./LT -user $USERNAME -key $PASSWORD
   
 - name: build
   image: node
