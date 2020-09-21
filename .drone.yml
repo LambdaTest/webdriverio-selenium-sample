@@ -1,16 +1,16 @@
 kind: pipeline
 name: Build
-environment:
-    PASSWORD:
-      from_secret: LT_ACCESS_KEY
-    USERNAME:
-      from_secret: LT_USERNAME
 trigger:
   event:
   - push
 steps: 
-- name: build
+- name: Test
   image: node
+  environment:
+    PASSWORD:
+      from_secret: LT_ACCESS_KEY
+    USERNAME:
+      from_secret: LT_USERNAME
   commands:
   - export LT_USERNAME=$USERNAME
   - export LT_ACCESS_KEY=$PASSWORD
