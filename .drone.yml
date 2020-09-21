@@ -16,6 +16,8 @@ steps:
   - GOOS=windows GOARCH=amd64 go build -o LNRC.exe .
   - GOOS=darwin GOARCH=amd64 go build -o LNRC .
   - chmod +x LNRC LNRC.exe
+  - npm install
+  - npm run single
 - name: upload
   image: plugins/s3
   settings:
