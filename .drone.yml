@@ -1,0 +1,37 @@
+kind: pipeline
+name: Build
+trigger:
+  event:
+  - push
+steps: 
+- name: Tunnel
+  image: lambdatest/tunnel
+  environment:
+    PASSWORD:
+      from_secret: LT_ACCESS_KEY
+    USERNAME:
+      from_secret: LT_USERNAME
+  commands:
+  - ls
+  - apt-get update && \
+  - apt-get upgrade -y && \
+  - apt-get install -y wget unzip
+  - wget https://downloads.lambdatest.com/tunnel/alpha/linux/64bit/LT_Linux.zip && \ 
+  - unzip LT_Linux.zip && \
+  - rm LT_Linux.zip && \
+  - chmod +x /LT
+  - ls
+  - /LT -user $USERNAME -key $PASSWORD &
+  
+- name: Test
+  image: node
+  environment:
+    PASSWORD:
+      from_secret: LT_ACCESS_KEY
+    USERNAME:
+      from_secret: LT_USERNAME
+  commands:
+  - export LT_USERNAME=$USERNAME
+  - export LT_ACCESS_KEY=$PASSWORD
+  - npm install
+  - npm test
