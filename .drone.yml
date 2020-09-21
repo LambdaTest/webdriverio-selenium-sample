@@ -9,7 +9,7 @@ steps:
   image: lambdatest/tunnel
   secrets: [LT_USERNAME, LT_ACCESS_KEY]
   commands:
-  - ll
+  - ls
   - pwd
   - ./LT -user $LT_USERNAME -key $LT_ACCESS_KEY
   
