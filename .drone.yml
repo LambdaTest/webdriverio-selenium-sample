@@ -10,7 +10,7 @@ steps:
   secrets: [LT_USERNAME, LT_ACCESS_KEY]
   commands:
   - docker run -it --name lt lambdatest/tunnel -user $LT_USERNAME -key $LT_ACCESS_KEY
-steps:
+  
 - name: build
   image: node
   secrets: [LT_USERNAME, LT_ACCESS_KEY]
