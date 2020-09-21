@@ -18,7 +18,7 @@ steps:
     - PASSWORD
   commands:
   - ls
-  - ./LT -user $USERNAME -key $PASSWORD
+  - curl 127.0.0.1:13001/api/v1.0/info
   
 - name: build
   image: node
