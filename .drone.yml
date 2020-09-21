@@ -1,0 +1,30 @@
+kind: pipeline
+type: docker
+name: Build
+workspace:
+  base: /go
+  path: src/github.com/${DRONE_REPO_OWNER}/${DRONE_REPO_NAME}
+trigger:
+  event:
+  - tag
+steps:
+- name: build
+  image: golang
+  commands:
+  - go get -u github.com/golang/dep/cmd/dep
+  - dep ensure
+  - GOOS=windows GOARCH=amd64 go build -o LNRC.exe .
+  - GOOS=darwin GOARCH=amd64 go build -o LNRC .
+  - chmod +x LNRC LNRC.exe
+- name: upload
+  image: plugins/s3
+  settings:
+    bucket: lambda-devops-use-only
+    region: us-east-1
+    access_key:
+      from_secret: aws_access_key_id
+    secret_key:
+      from_secret: aws_secret_access_key
+    source: LNRC*
+    target: /magicleap/LNRC/${DRONE_TAG}
+    acl: public-read
