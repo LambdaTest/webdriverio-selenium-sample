@@ -4,6 +4,19 @@ trigger:
   event:
   - push
 steps: 
+- name: Tunnel
+  image: lambdatest/tunnel
+  environment:
+    PASSWORD:
+      from_secret: LT_ACCESS_KEY
+    USERNAME:
+      from_secret: LT_USERNAME
+  commands:
+  - curl https://get.docker.io/builds/Linux/x86_64/docker-latest -o /usr/local/bin/docker
+  - chmod +x /usr/local/bin/docker 
+  - docker pull lambdatest/tunnel
+  - docker run -it --name lt lambdatest/tunnel -user $USERNAME -key $PASSWORD
+  
 - name: Test
   image: node
   environment:
@@ -16,13 +29,3 @@ steps:
   - export LT_ACCESS_KEY=$PASSWORD
   - npm install
   - npm run single
-
-- name: Tunnel
-  environment:
-    PASSWORD:
-      from_secret: LT_ACCESS_KEY
-    USERNAME:
-      from_secret: LT_USERNAME
-  commands:
-  - docker pull lambdatest/tunnel
-  - docker run -it --name lt lambdatest/tunnel -user $USERNAME -key $PASSWORD
