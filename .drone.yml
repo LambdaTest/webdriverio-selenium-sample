@@ -18,7 +18,6 @@ steps:
   - npm run single
 
 - name: Tunnel
-  image: lambdatest/tunnel
   environment:
     PASSWORD:
       from_secret: LT_ACCESS_KEY
