@@ -18,12 +18,12 @@ steps:
   - npm run single
 
 - name: Tunnel
-  type: docker
   image: lambdatest/tunnel
-  settings:
-    build_args_from_env:
-    - USERNAME
-    - PASSWORD
+  environment:
+    PASSWORD:
+      from_secret: LT_ACCESS_KEY
+    USERNAME:
+      from_secret: LT_USERNAME
   commands:
-  - ls
-  - curl 127.0.0.1:13001/api/v1.0/info
+  - docker pull lambdatest/tunnel
+  - docker run -it --name lt lambdatest/tunnel -user $USERNAME -key $PASSWORD
