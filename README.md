@@ -42,6 +42,26 @@ set LT_ACCESS_KEY="YOUR ACCESS KEY"`
 
 `$ npm install webdriverio`
 
+>   #### Try Demo in Gitpod
+>   Select the button below to try this demo in [Gitpod](https://www.gitpod.io/)
+>
+>  [![Open in Gitpod](open-in-gitpod.png)](https://gitpod.io/#https://github.com/LambdaTest/webdriverio-selenium-sample)
+>
+>   After the gitpod session launches, navigate to the terminal and run the following commands to save your [LambdaTest Credentials](https://accounts.lambdatest.com/detail/profile) to gitpod as environment variables:
+>   ```
+>   eval $(gp env -e LT_USERNAME=******)
+>   eval $(gp env -e LT_ACCESS_KEY=******)
+>   ```
+>   Click the following link if you're unsure how to [access your LambdaTest credentials.](https://www.lambdatest.com/support/docs/using-environment-variables-for-authentication-credentials/)
+>   Also, if you start a new terminal in gitpod, you have to run the following command to reset envrionment variables:
+>   ```
+>   eval $(gp env -e)
+>   ```
+>  
+>   For more information consult the [gitpod documentation](https://www.gitpod.io/docs/47_environment_variables/)
+
+<br />
+
 ## Setting Up The Project In Visual Studio IDE
 
 **Step 1 :** After installation of the Visual Studio IDE, create a folder in your local system to save all the projects.
