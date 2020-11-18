@@ -3,7 +3,7 @@ exports.config = {
     [
       "lambdatest",
       {
-        tunnel: true,
+        tunnel: false,
         lambdatestOpts: {
           logFile: "tunnel.log"
         }
