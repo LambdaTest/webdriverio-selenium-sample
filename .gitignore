@@ -1,3 +1,4 @@
-/node_modules/
-/.lambdatest/
+node_modules/
+.lambdatest/
 *.log
+package-lock.json
