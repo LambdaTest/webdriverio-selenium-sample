@@ -26,13 +26,13 @@
   "homepage": "https://github.com/lambdatest/webdriverio-selenium-sample#readme",
   "dependencies": {
     "chai": "*",
-    "mocha": "^6.0.2",
-    "webdriverio": "^5.6.2"
+    "mocha": "^8.2.1",
+    "webdriverio": "^6.10.7"
   },
   "devDependencies": {
     "@wdio/cli": "*",
     "@wdio/local-runner": "*",
-    "@wdio/mocha-framework": "^5.6.0",
+    "@wdio/mocha-framework": "^6.10.6",
     "@wdio/sync": "*",
     "wdio-lambdatest-service": "*"
   }
