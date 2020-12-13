@@ -25,19 +25,19 @@ exports.config = {
 
   capabilities: [
     {
-      platfrom: "win10",
+      platfrom: "Windows 10",
       browserName: "chrome",
-      version: "64.0"
+      version: "latest"
     },
     {
-      platform: "win10",
+      platform: "Windows 10",
       browserName: "firefox",
-      version: "64.0"
+      version: "latest"
     },
     {
-      platform: "win10",
+      platform: "Windows 10",
       browserName: "internet explorer",
-      version: "11.0"
+      version: "latest"
     }
   ],
 

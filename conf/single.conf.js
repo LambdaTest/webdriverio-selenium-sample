@@ -18,13 +18,9 @@ exports.config = {
   capabilities: [
     {
       browserName: "chrome",
-      version: "64.0",
-      name: "Test webdriverio",
-      build: "build 1",
-      network: false,
-      video: true,
-      visual: false,
-      console: false
+      version: "latest",
+      name: "Test WebdriverIO Single",
+      build: "Webdriver IO 5.2"
     }
   ],
   logLevel: "info",
