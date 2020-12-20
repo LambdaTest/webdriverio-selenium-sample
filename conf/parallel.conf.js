@@ -19,8 +19,8 @@ exports.config = {
 
   maxInstances: 10,
   commonCapabilities: {
-    // name: 'Parallel Sample Test',
-    // build: 'WebDriver Selenium Sample'
+    name: 'Parallel Sample Test',
+    build: 'WebDriver Selenium Sample'
   },
 
   capabilities: [
