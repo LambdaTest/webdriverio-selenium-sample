@@ -26,17 +26,17 @@ exports.config = {
   capabilities: [
     {
       platfrom: "Windows 10",
-      browserName: "chrome",
+      browserName: "Chrome",
       version: "latest"
     },
     {
       platform: "Windows 10",
-      browserName: "firefox",
+      browserName: "Firefox",
       version: "latest"
     },
     {
       platform: "Windows 10",
-      browserName: "internet explorer",
+      browserName: "Internet Explorer",
       version: "latest"
     }
   ],
@@ -44,7 +44,6 @@ exports.config = {
   logLevel: "info",
   coloredLogs: true,
   screenshotPath: "./errorShots/",
-  baseUrl: "",
   waitforTimeout: 10000,
   connectionRetryTimeout: 90000,
   connectionRetryCount: 3,
