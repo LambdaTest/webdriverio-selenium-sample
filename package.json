@@ -25,15 +25,15 @@
   },
   "homepage": "https://github.com/lambdatest/webdriverio-selenium-sample#readme",
   "dependencies": {
-    "chai": "*",
-    "mocha": "^8.2.1",
-    "webdriverio": "^6.10.7"
+    "chai": "^4.3.3",
+    "mocha": "^8.3.0",
+    "webdriverio": "^7.0.9"
   },
   "devDependencies": {
-    "@wdio/cli": "*",
-    "@wdio/local-runner": "*",
-    "@wdio/mocha-framework": "^6.10.6",
-    "@wdio/sync": "*",
-    "wdio-lambdatest-service": "*"
+    "@wdio/cli": "^7.0.9",
+    "@wdio/local-runner": "^7.0.9",
+    "@wdio/mocha-framework": "^7.0.7",
+    "@wdio/sync": "^7.0.9",
+    "wdio-lambdatest-service": "1.0.2"
   }
 }

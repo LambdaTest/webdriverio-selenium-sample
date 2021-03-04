@@ -5,46 +5,43 @@ exports.config = {
       {
         tunnel: false,
         lambdatestOpts: {
-          logFile: "tunnel.log"
-        }
-      }
-    ]
+          logFile: "tunnel.log",
+        },
+      },
+    ],
   ],
   user: process.env.LT_USERNAME,
   key: process.env.LT_ACCESS_KEY,
-  specs: [
-    './tests/specs/single_test.js'
-  ],
+  specs: ["./tests/specs/single_test.js"],
   exclude: [],
 
   maxInstances: 10,
   commonCapabilities: {
-    name: 'Parallel Sample Test',
-    build: 'WebDriver Selenium Sample'
+    name: "Parallel Sample Test",
+    build: "WebDriver Selenium Sample",
   },
 
   capabilities: [
     {
       platfrom: "Windows 10",
       browserName: "chrome",
-      version: "latest"
+      version: "latest",
     },
     {
       platform: "Windows 10",
-      browserName: "firefox",
-      version: "latest"
+      browserName: "Firefox",
+      version: "86.0",
     },
     {
       platform: "Windows 10",
       browserName: "internet explorer",
-      version: "latest"
-    }
+      version: "latest",
+    },
   ],
 
   logLevel: "info",
   coloredLogs: true,
   screenshotPath: "./errorShots/",
-  baseUrl: "",
   waitforTimeout: 10000,
   connectionRetryTimeout: 90000,
   connectionRetryCount: 3,
@@ -53,12 +50,12 @@ exports.config = {
   port: 80,
   framework: "mocha",
   mochaOpts: {
-    ui: "bdd"
-  }
+    ui: "bdd",
+  },
 };
 
 // Code to support common capabilities
-exports.config.capabilities.forEach(function(caps) {
+exports.config.capabilities.forEach(function (caps) {
   for (var i in exports.config.commonCapabilities)
     caps[i] = caps[i] || exports.config.commonCapabilities[i];
 });

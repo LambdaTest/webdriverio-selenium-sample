@@ -5,35 +5,34 @@ exports.config = {
       {
         tunnel: false,
         lambdatestOpts: {
-          logFile: "tunnel.log"
-        }
-      }
-    ]
+          logFile: "tunnel.log",
+        },
+      },
+    ],
   ],
   user: process.env.LT_USERNAME,
   key: process.env.LT_ACCESS_KEY,
-  specs: [
-    './tests/specs/multiple_test.js'
-  ],
+  specs: ["./tests/specs/multiple_test.js"],
   exclude: [],
-  capabilities: [{
-    browser: 'chrome',
-    name: 'Multiple Sample Test',
-    build: 'WebDriver Selenium Sample'
-  }],
+  capabilities: [
+    {
+      browser: "chrome",
+      name: "Multiple Sample Test",
+      build: "WebDriver Selenium Sample",
+    },
+  ],
 
-  logLevel: 'info',
+  logLevel: "info",
   coloredLogs: true,
-  screenshotPath: './errorShots/',
-  baseUrl: '',
+  screenshotPath: "./errorShots/",
   waitforTimeout: 10000,
   connectionRetryTimeout: 90000,
   connectionRetryCount: 3,
-  path: '/wd/hub',
-  hostname: 'hub.lambdatest.com',
+  path: "/wd/hub",
+  hostname: "hub.lambdatest.com",
   port: 80,
-  framework: 'mocha',
+  framework: "mocha",
   mochaOpts: {
-      ui: 'bdd'
-  }
-}
+    ui: "bdd",
+  },
+};
