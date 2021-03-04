@@ -26,7 +26,6 @@ exports.config = {
   logLevel: "info",
   coloredLogs: true,
   screenshotPath: "./errorShots/",
-  baseUrl: "",
   waitforTimeout: 100000,
   connectionRetryTimeout: 90000,
   connectionRetryCount: 1,
