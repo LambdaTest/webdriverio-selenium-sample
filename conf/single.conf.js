@@ -12,11 +12,13 @@ exports.config = {
   ],
   user: process.env.LT_USERNAME,
   key: process.env.LT_ACCESS_KEY,
+  buildName: process.env.LT_BUILD_NAME,
   specs: ["./tests/specs/single_test.js"],
   exclude: [],
 
   capabilities: [
     {
+      "LT:Options": {
       browserName: "chrome",
       version: "latest",
       name: "Test WebdriverIO Single",
