@@ -24,7 +24,7 @@ exports.config = {
       name: "Test WebdriverIO Single",
       build: "WebDriver Selenium Sample"
     }
-  ],
+    }],
   logLevel: "info",
   coloredLogs: true,
   screenshotPath: "./errorShots/",
