@@ -22,13 +22,12 @@ exports.config = {
       browserName: "chrome",
       version: "latest",
       name: "Test WebdriverIO Single",
-      build: "buildWebDriverTest",
-      }
+      build: "WebDriver Selenium Sample"
+    }
   ],
   logLevel: "info",
   coloredLogs: true,
   screenshotPath: "./errorShots/",
-  baseUrl: "",
   waitforTimeout: 100000,
   connectionRetryTimeout: 90000,
   connectionRetryCount: 1,
