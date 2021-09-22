@@ -18,11 +18,12 @@ exports.config = {
 
   capabilities: [
     {
+      "LT:Options": {
       browserName: "chrome",
       version: "latest",
       name: "Test WebdriverIO Single",
-      build: buildName
-    }
+      build: "buildWebDriverTest",
+      }
   ],
   logLevel: "info",
   coloredLogs: true,
