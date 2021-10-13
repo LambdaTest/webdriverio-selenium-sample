@@ -14,7 +14,7 @@ WebdriverIO is a custom implementation for selenium's W3C webdriver API. It is w
 
 `$   install node`
 
-To verify the node version 
+To verify the node version (Node version < 15)
 
 ` $  node -v `
 
