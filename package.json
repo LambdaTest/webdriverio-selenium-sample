@@ -27,7 +27,8 @@
   "dependencies": {
     "chai": "*",
     "mocha": "*",
-    "webdriverio": "*"
+    "webdriverio": "*",
+    "@axe-core/webdriverio": "*"
   },
   "devDependencies": {
     "@wdio/cli": "*",

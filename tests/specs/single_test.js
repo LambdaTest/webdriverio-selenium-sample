@@ -4,9 +4,10 @@ describe('Google Search Function', () => {
   it('can find search results', () => {
     browser.url('https://www.google.co.in/');
     const input = $('[name="q"]');
-    input.setValue('test123');
+    input.setValue('LambdaTest\n');
     const title = browser.getTitle();
-    browser.pause(10000);
-    assert.equal(title, 'Google');
+    browser.pause(1000);
+    assert.equal(title, 'LambdaTest - Google Search');
+    browser.getAxeResults();
   });
 });
