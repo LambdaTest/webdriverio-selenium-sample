@@ -1,7 +1,5 @@
 # WebdriverIO Tutorial
-[WebdriverIO 5.6.2](http://webdriver.io/) Integration with LambdaTest
-
-![LambdaTest Logo](https://www.lambdatest.com/images/logo.svg)
+[WebdriverIO](http://webdriver.io/) Integration with LambdaTest
 
 <img src = "https://miro.medium.com/max/2488/1*2ntKtVBowGdACso6Gcmy1A.jpeg" height = "400">
 
