@@ -1,13 +1,16 @@
 const assert = require('assert');
 
 describe('Google Search Function', () => {
-  it('can find search results', () => {
-    browser
+  it('can find search results', async () => {
+    await browser
       .url('https://www.google.com/ncr')
-      const input = $('[name="q"]');
-      input.setValue('Single Session Test 2');
+      const prompt = await $('[id="L2AGLb"]'); // consent popup is coming for other location which needs to be accepted to proceed
+      if(prompt.elementId)
+        await prompt.click();
+      const input = await $('[name="q"]');
+      await input.setValue('Single Session Test 2');
 
-      const title = browser.getTitle();
+      const title = await browser.getTitle();
       assert.equal(title, 'Google');
   });
 });

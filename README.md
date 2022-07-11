@@ -396,7 +396,8 @@ exports.config = {
   port: 80,
   framework: "mocha",
   mochaOpts: {
-    ui: "bdd"
+    ui: "bdd",
+    timeout: 50000,
   }
 };
  
