@@ -22,9 +22,7 @@ exports.config = {
       browserName: "chrome",
       version: "latest",
       name: "Test WebdriverIO Single",
-      build: "WebDriver Selenium Sample",
-      seCdp: true,
-      selenium_version: "4.0.0",
+      build: "WebDriver Selenium Sample"
     }
     }],
   logLevel: "info",
