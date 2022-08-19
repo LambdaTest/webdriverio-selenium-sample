@@ -25,7 +25,7 @@ describe('Google Search Function', () => {
     const input = await $('[name="q"]');
     await input.setValue('test123');
     const title = await browser.getTitle();
-    await assert.equal(title, 'Googlell');
+    await assert.equal(title, 'Google');
     testStatus = "passed";
   });
 
