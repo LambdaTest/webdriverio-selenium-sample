@@ -7,7 +7,8 @@
     "test": "npm run single && npm run parallel && npm run multiple",
     "single": "./node_modules/.bin/wdio conf/single.conf.js",
     "parallel": "./node_modules/.bin/wdio conf/parallel.conf.js",
-    "multiple": "./node_modules/.bin/wdio conf/multiple.conf.js"
+    "multiple": "./node_modules/.bin/wdio conf/multiple.conf.js",
+    "integration": "./node_modules/.bin/wdio conf/integration.conf.js"
   },
   "repository": {
     "type": "git",
@@ -34,6 +35,7 @@
     "@wdio/local-runner": "*",
     "@wdio/mocha-framework": "*",
     "@wdio/sync": "*",
+    "async-request": "^1.2.0",
     "wdio-lambdatest-service": "*"
   }
 }
