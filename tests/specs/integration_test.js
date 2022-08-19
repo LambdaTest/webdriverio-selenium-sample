@@ -48,16 +48,3 @@ describe('Google Search Function', () => {
     console.log(JSON.stringify(response))
   })
 });
-
-
-// test_case_id: 160823
-// test_run_id: 6773
-// curl --location -g --request PUT 'https://app.qadeputy.com/api/v1/test-runs/6773/test-cases/160823' \
-// --header 'Authorization: Bearer p9yl6kDVxJLNYo9IxltgOkBBwrYOnO' \
-// --header 'email: mukeshr@lambdatest.com' \
-// --header 'Content-Type: application/json' \
-// --header 'Accept: application/json' \
-// --data-raw '{
-// 	"test_case_status":4,
-// 	"actual_result": "Test actual result"
-// }'
