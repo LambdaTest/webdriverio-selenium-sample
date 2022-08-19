@@ -427,8 +427,7 @@ Below is the screenshot for the parallel test execution in the [LambdaTest Autom
 
 ![](https://www.lambdatest.com/blog/wp-content/uploads/2020/05/seleniumwebdriverIO.png)
 
-## About LambdaTest
-Running test with QA - Deputy integration
+## Running test with QA - Deputy integration
 `testRunId={test_run_id} testCaseId={test_case_id} apiToken={api_token} email={email} npm run integration`
 if you do not wish to pass above arguments via you can provide their values within test itself, they are declared in tests/specs/integration_test.js:L11-L15
 
