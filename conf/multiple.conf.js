@@ -13,7 +13,7 @@ exports.config = {
   user: process.env.LT_USERNAME,
   key: process.env.LT_ACCESS_KEY,
   specs: [
-    './tests/specs/multiple_test.js'
+    '../tests/specs/multiple_test.js'
   ],
   exclude: [],
   capabilities: [{
