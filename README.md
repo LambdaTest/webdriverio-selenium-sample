@@ -16,10 +16,6 @@ To verify the node version (Node version < 15)
 
 ` $  node -v `
 
-If node isn’t of the latest version then you can update it using the below command.
-
-`$ npm install npm@latest -g`
-
 3. Install Selenium Dependencies
 
 `npm install selenium-webdriver `
@@ -246,7 +242,7 @@ exports.config = {
   ],
   user: 'Your_LambdaTest_Username',
   key: 'Your_LambdaTest_Access_Key',
-  specs: ["./tests/specs/single_test.js"],
+  specs: ["../tests/specs/single_test.js"],
   exclude: [],
  
   capabilities: [
@@ -356,7 +352,7 @@ exports.config = {
   user: 'Your_LambdaTest_Username',
   key: 'Your_LambdaTest_Access_Key',
   specs: [
-    './tests/specs/single_test.js'
+    '../tests/specs/single_test.js'
   ],
   exclude: [],
  
