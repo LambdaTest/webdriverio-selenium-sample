@@ -29,7 +29,7 @@
     "chai": "*",
     "mocha": "*",
     "selenium-webdriver": "^4.3.1",
-    "webdriverio": "^7.20.5"
+    "webdriverio": "^8.3.3"
   },
   "devDependencies": {
     "@wdio/cli": "*",
