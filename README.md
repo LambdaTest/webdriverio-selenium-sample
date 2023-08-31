@@ -74,102 +74,49 @@ set LT_ACCESS_KEY="YOUR ACCESS KEY"`
 **Step 6:** Initialize your project by hitting the command npm init. This will create a package.json file in an interactive way, which will contain all our required project configurations. It will be required to execute our test script. Here is that package.json.
 
 
-```
-
+```json
 {
-
-
-
-
- "name": "webdriverio-Lambdatest",
-
-
- "version": "0.1.0",
-
-
- "readme": "WendriverIO Integration with [Lambdatest](https://www.Lambdatest.com)",
-
-
- "description": "Selenium examples for WebdriverIO and Lambdatest Automate",
-
-
- "scripts": {
-
-
-   "test": "npm run single && npm run local && npm run parallel",
-
-
-   "single": "./node_modules/.bin/wdio conf/single.conf.js",
-
-
-   "parallel": "./node_modules/.bin/wdio conf/parallel.conf.js",
-
-
-   "local": "./node_modules/.bin/wdio conf/local.conf.js",
-
-
-   "multiple": "./node_modules/.bin/wdio conf/multiple.conf.js"
-
-
- },
-
-
- "repository": {
-
-
-   "type": "git",
-
-
-   "url": "git+https://github.com/Lambdatest/webdriverio-Lambdatest.git"
-
-
- },
-
-
- "keywords": [
-
-
-   "webdriverio",
-
-
-   "Lambdatest",
-
-
-   "selenium",
-
-
-   "tests"
-
-
- ],
-
-
- "bugs": {},
-
-
- "homepage": "https://github.com/Lambdatest/webdriverio-Lambdatest#readme",
-
-
- "dependencies": {
-
-
-   "webdriverio": "^4.14.2"
-
-
- },
-
-
- "devDependencies": {
-
-
-   "wdio-mocha-framework": "^0.6.4"
-
-
- }
-
-
+  "name": "webdriverio-lambdatest",
+  "version": "0.1.0",
+  "readme": "WendriverIO Integration with [LambdaTest](https://www.lambdatest.com)",
+  "description": "Selenium examples for WebdriverIO and LambdaTest Selenium Grid",
+  "scripts": {
+    "test": "npm run single && npm run parallel && npm run multiple",
+    "single": "./node_modules/.bin/wdio conf/single.conf.js",
+    "parallel": "./node_modules/.bin/wdio conf/parallel.conf.js",
+    "multiple": "./node_modules/.bin/wdio conf/multiple.conf.js",
+    "integration": "./node_modules/.bin/wdio conf/integration.conf.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lambdatest/webdriverio-selenium-sample.git"
+  },
+  "keywords": [
+    "webdriverio",
+    "lambdatest",
+    "automation",
+    "selenium",
+    "tests"
+  ],
+  "bugs": {
+    "url": "https://github.com/lambdatest/webdriverio-selenium-sample/issues"
+  },
+  "homepage": "https://github.com/lambdatest/webdriverio-selenium-sample#readme",
+  "dependencies": {
+    "chai": "*",
+    "mocha": "*",
+    "selenium-webdriver": "^4.3.1",
+    "webdriverio": "^8.3.3"
+  },
+  "devDependencies": {
+    "@wdio/cli": "*",
+    "@wdio/local-runner": "*",
+    "@wdio/mocha-framework": "*",
+    "@wdio/sync": "*",
+    "async-request": "^1.2.0",
+    "wdio-lambdatest-service": "*"
+  }
 }
-
 ```
 
 
@@ -233,34 +180,31 @@ exports.config = {
     [
       "lambdatest",
       {
-        tunnel: true,
+        tunnel: false,
         lambdatestOpts: {
           logFile: "tunnel.log"
         }
       }
     ]
   ],
-  user: 'Your_LambdaTest_Username',
-  key: 'Your_LambdaTest_Access_Key',
+  user: process.env.LT_USERNAME,
+  key: process.env.LT_ACCESS_KEY,
+  buildName: process.env.LT_BUILD_NAME,
   specs: ["../tests/specs/single_test.js"],
   exclude: [],
- 
+
   capabilities: [
     {
+      "LT:Options": {
       browserName: "chrome",
-      version: "64.0",
-      name: "Test webdriverio",
-      build: "build 1",
-      network: false,
-      video: true,
-      visual: false,
-      console: false
+      version: "latest",
+      name: "Test WebdriverIO Single",
+      build: "WebDriver Selenium Sample"
     }
-  ],
+    }],
   logLevel: "info",
   coloredLogs: true,
   screenshotPath: "./errorShots/",
-  baseUrl: "",
   waitforTimeout: 100000,
   connectionRetryTimeout: 90000,
   connectionRetryCount: 1,
@@ -269,7 +213,8 @@ exports.config = {
   port: 80,
   framework: "mocha",
   mochaOpts: {
-    ui: "bdd"
+    ui: "bdd",
+    timeout: 50000,
   }
 };
 ```
