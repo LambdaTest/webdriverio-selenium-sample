@@ -28,15 +28,14 @@
   "dependencies": {
     "chai": "*",
     "mocha": "*",
-    "selenium-webdriver": "^4.3.1",
-    "webdriverio": "^8.3.3"
+    "selenium-webdriver": "^4.13.0",
+    "webdriverio": "^8.26.1"
   },
   "devDependencies": {
     "@wdio/cli": "*",
     "@wdio/local-runner": "*",
     "@wdio/mocha-framework": "*",
     "@wdio/sync": "*",
-    "async-request": "^1.2.0",
     "wdio-lambdatest-service": "*"
   }
 }
