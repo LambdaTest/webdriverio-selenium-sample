@@ -1,382 +1,113 @@
-# WebdriverIO Tutorial
-[WebdriverIO](http://webdriver.io/) Integration with LambdaTest
+# Run Selenium Tests with WebdriverIO on TestMu AI (Formerly LambdaTest)
 
-<img src = "https://miro.medium.com/max/2488/1*2ntKtVBowGdACso6Gcmy1A.jpeg" height = "400">
+<p align="center">
+  <a href="https://www.testmuai.com/"><img src="https://img.shields.io/badge/MADE%20BY%20TestMu%20AI-000000.svg?style=for-the-badge&labelColor=000" alt="Made by TestMu AI"></a>
+  <a href="https://www.npmjs.com/package/webdriverio"><img src="https://img.shields.io/npm/v/webdriverio.svg?style=for-the-badge&labelColor=000000" alt="WebdriverIO version"></a>
+  <a href="https://community.testmuai.com/"><img src="https://img.shields.io/badge/Join%20the%20community-blueviolet.svg?style=for-the-badge&labelColor=000000" alt="Community"></a>
+</p>
 
-WebdriverIO is a custom implementation for selenium's W3C webdriver API. It is written in Javascript and packaged into 'npm' and runs on Node.js.
+## Getting Started
 
-## Prerequisites for  WebdriverIO 
+[TestMu AI](https://www.testmuai.com/) (Formerly LambdaTest) is the world's first full-stack AI Agentic Quality Engineering platform that empowers teams to test intelligently, smarter, and ship faster. Built for scale, it offers a full-stack testing cloud with 10K+ real devices and 3,000+ browsers. With AI-native test management, MCP servers, and agent-based automation, TestMu AI supports Selenium, Appium, Playwright, and all major frameworks. 
 
-1. Download Visual Studio (IDE) for your operating system.
-2. **Node.js and Package Manager (npm) :** Install Node.js from their [official website](https://nodejs.org/en/download/) Or Install Node.js using command line. Go to the terminal or command prompt & run the below command.
+With TestMu AI (Formerly LambdaTest), you can run JavaScript WebdriverIO Selenium automation tests across real browsers and operating systems. This sample shows how to configure Node.js + WebdriverIO to run on the TestMu AI cloud.
 
-`$   install node`
+- [Sign up on TestMu AI](https://www.testmuai.com/register/) (Formerly LambdaTest).
+- Follow the [TestMu AI Documentation](https://www.testmuai.com/support/docs/) for the full setup walkthrough.
 
-To verify the node version (Node version < 18)
+### Prerequisites
 
-` $  node -v `
+- Node.js and npm (latest stable)
+- A TestMu AI (Formerly LambdaTest) account with your username and access key
 
-3. Install Selenium Dependencies
+### Setup
 
-`npm install selenium-webdriver `
+Clone and install dependencies:
 
- 4. **LambdaTest Authentication Credentials:** Make sure you have your LambdaTest credentials with you to run test automation scripts with Jest on LambdaTest Selenium Grid. You can obtain these credentials from the [LambdaTest Automation Dashboard](https://automation.lambdatest.com/) or through [LambdaTest Profile](https://accounts.lambdatest.com/detail/profile).
-
-Set LambdaTest Username and Access Key in environment variables.
-
-* For Linux/macOS:
-`export LT_USERNAME="YOUR_USERNAME"
-export LT_ACCESS_KEY="YOUR ACCESS KEY"`
-
-* For Windows:
-`set LT_USERNAME="YOUR_USERNAME"
-set LT_ACCESS_KEY="YOUR ACCESS KEY"`
-
-5. Ensure that you have Webdriverio installed in your system, you can install it using the below command through npm. 	
-
-`$ npm install webdriverio`
-
->   #### Try Demo in Gitpod
->   Select the button below to try this demo in [Gitpod](https://www.gitpod.io/)
->
->  [![Open in Gitpod](open-in-gitpod.png)](https://gitpod.io/#https://github.com/LambdaTest/webdriverio-selenium-sample)
->
->   After the gitpod session launches, navigate to the terminal and run the following commands to save your [LambdaTest Credentials](https://accounts.lambdatest.com/detail/profile) to gitpod as environment variables:
->   ```
->   eval $(gp env -e LT_USERNAME=******)
->   eval $(gp env -e LT_ACCESS_KEY=******)
->   ```
->   Click the following link if you're unsure how to [access your LambdaTest credentials.](https://www.lambdatest.com/support/docs/using-environment-variables-for-authentication-credentials/)
->   Also, if you start a new terminal in gitpod, you have to run the following command to reset envrionment variables:
->   ```
->   eval $(gp env -e)
->   ```
->  
->   For more information consult the [gitpod documentation](https://www.gitpod.io/docs/47_environment_variables/)
-
-<br />
-
-## Setting Up The Project In Visual Studio IDE
-
-**Step 1 :** After installation of the Visual Studio IDE, create a folder in your local system to save all the projects.
-
-**Step 2 :** Install the below extensions for JavaScript from ‘Extensions’ in VScode Editor.  
-* Code Runner 
-* JavaScript( ES6) code snippet
-* ES Lint
-
-**Step 3 :** Press ‘Ctrl+Shift+P’ and search for git:clone. Paste the URL of this repository[https://github.com/LambdaTest/webdriverio-selenium-sample.git](https://github.com/LambdaTest/webdriverio-selenium-sample.git) to clone.
-
-**Step 4 :** Press ENTER and save the WebdriverIO project in the above created folder.
-
-**Step 5:** Create a project directory named [webdriverio-selenium-sample](https://github.com/LambdaTest/webdriverio-selenium-sample)  directory in the VS code (IDE).
-
-**Step 6:** Initialize your project by hitting the command npm init. This will create a package.json file in an interactive way, which will contain all our required project configurations. It will be required to execute our test script. Here is that package.json.
-
-
-```json
-{
-  "name": "webdriverio-lambdatest",
-  "version": "0.1.0",
-  "readme": "WebdriverIO Integration with [LambdaTest](https://www.lambdatest.com)",
-  "description": "Selenium examples for WebdriverIO and LambdaTest Selenium Grid",
-  "scripts": {
-    "test": "npm run single && npm run parallel && npm run multiple",
-    "single": "./node_modules/.bin/wdio conf/single.conf.js",
-    "parallel": "./node_modules/.bin/wdio conf/parallel.conf.js",
-    "multiple": "./node_modules/.bin/wdio conf/multiple.conf.js",
-    "integration": "./node_modules/.bin/wdio conf/integration.conf.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/lambdatest/webdriverio-selenium-sample.git"
-  },
-  "keywords": [
-    "webdriverio",
-    "lambdatest",
-    "automation",
-    "selenium",
-    "tests"
-  ],
-  "bugs": {
-    "url": "https://github.com/lambdatest/webdriverio-selenium-sample/issues"
-  },
-  "homepage": "https://github.com/lambdatest/webdriverio-selenium-sample#readme",
-  "dependencies": {
-    "chai": "*",
-    "mocha": "*",
-    "selenium-webdriver": "^4.23.0",
-    "webdriverio": "^9.0.7"
-  },
-  "devDependencies": {
-    "@wdio/cli": "*",
-    "@wdio/local-runner": "*",
-    "@wdio/mocha-framework": "*",
-    "@wdio/sync": "*",
-    "wdio-lambdatest-service": "*"
-  }
-}
+```bash
+git clone https://github.com/LambdaTest/webdriverio-selenium-sample && cd webdriverio-selenium-sample
+npm install
 ```
 
+Set your credentials as environment variables.
 
-**Note:**  In case, you’re importing the sample, you would need to give the below command to install all dependencies mentioned in the package.json file in the sample code.
+**macOS / Linux:**
 
-
-`$ npm i or $ npm install`
-
-## Executing First Webdriverio Test Script
-
-
-### Test Scenario
-
-The test script will do the following actions:
-1. Invoke the browser launch.
-2. Go to www.google.com. 
-3. Type test123 in the search box.
-4. Fetch the title of the web page.
-5. Close the browser and display the fetched title in the console.
-
-That’s it. Before we deep dive into the test script, we need to declare our desired capabilities. These desired capabilities will help us define the testing environment such as browser version, operating system, and more. You can leverage [LambdaTest Desired Capabilities Generator](https://www.lambdatest.com/capabilities-generator/) to specify the desired capabilities class.
-
-### [LambdaTest Desired Capabilities Generator](https://www.lambdatest.com/capabilities-generator/) 
-
-Let us fetch the desired capabilities class from the **LambdaTest Desired Capabilities Generator** to run the script on LambdaTest cloud-based Selenium Grid.
-
-![capability-generator](https://www.lambdatest.com/blog/wp-content/uploads/2020/05/pasted-image-0.png)
-
-With the capability generator, you can specify a variety of configurations in multiple programming languages.
-
-### Test Scripts For Running WebdriverIO Test On A Single Configuration
-
-We’ll create a JavaScript file [single_test.js](https://github.com/LambdaTest/webdriverio-selenium-sample/blob/master/tests/specs/single_test.js) for running the test script using WebdriverIO, as per the test scenario. 
-
+```bash
+export LT_USERNAME="YOUR_USERNAME"
+export LT_ACCESS_KEY="YOUR_ACCESS_KEY"
+export LT_TUNNEL="YOUR_TUNNEL_NAME"
 ```
 
-const assert = require('assert');
- 
-describe('Google Search Function', () => {
-  it('can find search results', () => {
-    browser.url('https://www.google.com/ncr');
-    const input = $('[name="q"]');
-    input.setValue('test123');
- 
-    const title = browser.getTitle();
-    assert.equal(title, 'Google');
-  });
-});
+**Windows:**
 
+```bash
+set LT_USERNAME="YOUR_USERNAME"
+set LT_ACCESS_KEY="YOUR_ACCESS_KEY"
+set LT_TUNNEL="YOUR_TUNNEL_NAME"
 ```
 
-**Create configuration file:**
+### Run tests
 
-To run the script, we would also need a configuration file to provide the capabilities, which can be generated using the capabilities generator. The configuration file will also contain the credentials of user i.e username and access key and the Hub URL. In case, the script requires tunnel connection, we can set the **tunnel: true** in the **services**. This will automatically download the tunnel binary to the project, start it before test execution and close after the test is executed.
-
-Below is the snippet of the configuration file for single_test.js named by single.conf.js in the conf folder.
-
-```JavaScript
-exports.config = {
-  services: [
-    [
-      "lambdatest",
-      {
-        tunnel: false,
-        lambdatestOpts: {
-          logFile: "tunnel.log"
-        }
-      }
-    ]
-  ],
-  user: process.env.LT_USERNAME,
-  key: process.env.LT_ACCESS_KEY,
-  buildName: process.env.LT_BUILD_NAME,
-  specs: ["../tests/specs/single_test.js"],
-  exclude: [],
-
-  capabilities: [
-    {
-      "LT:Options": {
-      browserName: "chrome",
-      version: "latest",
-      name: "Test WebdriverIO Single",
-      build: "WebDriver Selenium Sample"
-    }
-    }],
-  logLevel: "info",
-  coloredLogs: true,
-  screenshotPath: "./errorShots/",
-  waitforTimeout: 100000,
-  connectionRetryTimeout: 90000,
-  connectionRetryCount: 1,
-  path: "/wd/hub",
-  hostname: "hub.lambdatest.com",
-  port: 80,
-  framework: "mocha",
-  mochaOpts: {
-    ui: "bdd",
-    timeout: 50000,
-  }
-};
-```
-If you notice the package.json, you will find required dependencies added for the single.conf.js.
-
-## Running The First WebdriverIO Test Script
-
-Open terminal or command prompt in the project directory where you cloned [GitHub repository for WebdriverIO](https://github.com/LambdaTest/webdriverio-selenium-sample), then run the below command to execute your first WebdriverIO test script on LambdaTest Selenium Grid. As per our declared capabilities, this test should run over Google Chrome 64.
-
-`npm run single`
-
-The above command is defined in the package.json file, and can be provided with any name as per the user’s convenience. Following is the snippet of the same:
-
-```
-"scripts": {
-    "test": "npm run single,
-     single": "./node_modules/.bin/wdio conf/single.conf.js"
-}
-
+```bash
+npm run wdio
 ```
 
-Once you run the command, you can notice whether the test passed or failed which can over LambdaTest Automation Dashboard. In the below snapshot, we can see the test got passed.
+View results on your TestMu AI dashboard.
 
-![](https://www.lambdatest.com/blog/wp-content/uploads/2020/05/automation-testing.png)
+### Local testing with TestMu AI Tunnel
 
-Also , if you look at your **Output Console**, you will find the **title of the web page**.
+To test locally hosted apps, set up the TestMu AI tunnel. OS-specific guides:
 
-![](https://www.lambdatest.com/blog/wp-content/uploads/2020/05/testing-script.png)
+- [Local Testing on Windows](https://www.testmuai.com/support/docs/local-testing-for-windows/)
+- [Local Testing on macOS](https://www.testmuai.com/support/docs/local-testing-for-macos/)
+- [Local Testing on Linux](https://www.testmuai.com/support/docs/local-testing-for-linux/)
 
-## Testing Locally Hosted Web-Applications
+Add the following to your capabilities:
 
-In case, the script requires tunnel connection, we can set the **tunnel: true** in the **services**. This will automatically download the tunnel binary to the project, start it before test execution and close after the test is executed. We did this in single conf.js if you didn’t notice.
-
-```javascript
-exports.config = {
-  services: [
-    [
-      "lambdatest",
-      {
-        tunnel: true,
-        lambdatestOpts: {
-          logFile: "tunnel.log"
-        }
-      }
-    ]
-  ]
-
+```js
+tunnel: true,
 ```
 
-* Set **tunnel = true**
-* Set **tunnelName** = '**Identifier name**'  (recommended as a tunnel identifier  in case of  more than 1 tunnels being connected)
+## Contributions
 
-**Curious to know more about Lambda Tunnel To Test Locally Hosted Pages?**
+Contributions are welcome. Open an issue to discuss your idea before submitting a pull request. When reporting bugs, include your Node.js version, OS, and WebdriverIO version.
 
-Refer to our support documentation for more information on [Lambda Tunnel](https://www.lambdatest.com/support/docs/testing-locally-hosted-pages/). 
+## TestMu AI (Formerly LambdaTest) Community
 
-### Want To Run Lambda Tunnel Without Using Command Line?
+Connect with testers and developers in the [TestMu AI Community](https://community.testmuai.com/). Ask questions, share what you are building, and discuss best practices in test automation and DevOps.
+  
+## TestMu AI (Formerly LambdaTest) Certifications
 
-Download the **Underpass** app for your operating system. Refer to our support documentation for more information on [Lambda Underpass-tunnel-app](https://www.lambdatest.com/support/docs/underpass-tunnel-application/)
+Earn free [TestMu AI Certifications](https://www.testmuai.com/certifications/) for testers, developers, and QA engineers. Validate your skills in Selenium, Cypress, Playwright, Appium, Espresso and more. Industry-recognized, shareable on LinkedIn, and built by practitioners, not marketers.
 
-## Parallel Execution
+## Learning Resources by TestMu AI (Formerly LambdaTest)
 
-Webdriverio does support parallel execution of code, i.e. execution of same code simultaneously on multiple browsers/device combinations which not only saves efforts to test the code, but also reduces the total execution time of tests.
+Learn modern testing through tutorials, guides, videos, and weekly updates:
 
-To perform parallel execution of the above WebdriverIO test script over LambdaTest [Selenium Grid](https://www.lambdatest.com/selenium-automation), you would only need to modify the configuration file with multiple capabilities. Following is the snippet for the same. You can find this file as [parallel.conf.js](https://github.com/LambdaTest/webdriverio-selenium-sample/blob/master/conf/parallel.conf.js).
+* [TestMu AI Blog](https://www.testmuai.com/blog/)
+* [TestMu AI Learning Hub](https://www.testmuai.com/learning-hub/)
+* [TestMu AI on YouTube](https://www.youtube.com/@TestMuAI)
+* [TestMu AI Newsletter](https://www.testmuai.com/newsletter/)
+  
+## LambdaTest is Now TestMu AI
 
-```javascript
-exports.config = {
-  services: [
-    [
-      "lambdatest",
-      {
-        tunnel: true,
-        lambdatestOpts: {
-          logFile: "tunnel.log"
-        }
-      }
-    ]
-  ],
-  user: 'Your_LambdaTest_Username',
-  key: 'Your_LambdaTest_Access_Key',
-  specs: [
-    '../tests/specs/single_test.js'
-  ],
-  exclude: [],
- 
-  maxInstances: 10,
-  commonCapabilities: {
-    // name: 'Parallel Sample Test',
-    // build: 'WebDriver Selenium Sample'
-  },
- 
-  capabilities: [
-    {
-      platform: "win10",
-      browserName: "chrome",
-      version: "64.0"
-    },
-    {
-      platform: "win10",
-      browserName: "firefox",
-      version: "64.0"
-    },
-    {
-      platform: "win10",
-      browserName: "internet explorer",
-      version: "11.0"
-    }
-  ],
- 
-  logLevel: "info",
-  coloredLogs: true,
-  screenshotPath: "./errorShots/",
-  baseUrl: "",
-  waitforTimeout: 10000,
-  connectionRetryTimeout: 90000,
-  connectionRetryCount: 3,
-  path: "/wd/hub",
-  hostname: "hub.lambdatest.com",
-  port: 80,
-  framework: "mocha",
-  mochaOpts: {
-    ui: "bdd",
-    timeout: 50000,
-  }
-};
- 
-// Code to support common capabilities
-exports.config.capabilities.forEach(function(caps) {
-  for (var i in exports.config.commonCapabilities)
-    caps[i] = caps[i] || exports.config.commonCapabilities[i];
-});
+On **January 12, 2026**, [LambdaTest evolved to TestMu AI](https://www.testmuai.com/lambdatest-is-now-testmuai/), the world's first fully autonomous **Agentic AI Quality Engineering Platform**.
 
-```
-In the above code, we have provided multiple capabilities to execute the same code on **Google Chrome 64**, **Mozilla Firefox 64** and **IE 11** **simultaneously** on **Windows 10**. 
-Note: To run parallel test, we also defined separate command: **npm run parallel** in our package.json file, like below:
+Same team. Same infrastructure. Same customer accounts. All existing LambdaTest logins, scripts, capabilities, and integrations continue to work without change.
 
+ð Find the new home for [LambdaTest](https://www.testmuai.com).
 
-```javascript
-"scripts": {
-    "test": "npm run single && npm run parallel",
-    "single": "./node_modules/.bin/wdio conf/single.conf.js",
-    "parallel": "./node_modules/.bin/wdio conf/parallel.conf.js",
- }
-```
+### How LambdaTest Evolved into TestMu AI
 
-So, the above script will run on different browsers simultaneously with the below command as defined above in the package.json file.
+In 2017, we launched LambdaTest with a simple mission: make testing fast, reliable, and accessible. As LambdaTest grew, we expanded into Test Intelligence, Visual Regression Testing, Accessibility Testing, API Testing, and Performance Testing, covering the full depth of the testing lifecycle.
 
-`npm run parallel`
+As software development entered the AI era, testing had to evolve, too. We rebuilt the architecture to be AI-native from the ground up, with autonomous agents that **plan, author, execute, analyze, and optimize tests** while keeping humans in the loop. The platform integrates with your repos, CI, IDEs, and terminals, continuously learning from every code change and development signal.
 
-Below is the screenshot for the parallel test execution in the [LambdaTest Automation Dashboard](https://automation.lambdatest.com/).
+That evolution earned a new name: **TestMu AI**, built for an AI-first future of quality engineering. TestMu is not a new name for us. It is the name of our annual community conference, which has brought together 100,000+ quality engineers to discuss how AI would reshape testing, long before that became an industry norm. 
 
-![](https://www.lambdatest.com/blog/wp-content/uploads/2020/05/seleniumwebdriverIO.png)
+What started as a high-performance cloud testing platform has transformed into an AI-native, multi-agent system powering a connected, end-to-end quality layer. That evolution defined a new identity: LambdaTest evolved into TestMu AI, built for an AI-first future of quality engineering.
 
-## Running test with QA - Deputy integration
-`testRunId={test_run_id} testCaseId={test_case_id} apiToken={api_token} email={email} npm run integration`
-if you do not wish to pass above arguments via you can provide their values within test itself, they are declared in tests/specs/integration_test.js:L11-L15
+## Support
 
-## About LambdaTest
-
-[LambdaTest](https://www.lambdatest.com/) is a cloud based selenium grid infrastructure that can help you run automated cross browser compatibility tests on 2000+ different browser and operating system environments. LambdaTest supports all programming languages and frameworks that are supported with Selenium, and have easy integrations with all popular CI/CD platforms. It's a perfect solution to bring your [selenium automation testing](https://www.lambdatest.com/selenium-automation) to cloud based infrastructure that not only helps you increase your test coverage over multiple desktop and mobile browsers, but also allows you to cut down your test execution time by running tests on parallel.
-
-
-## Resources
-### [SeleniumHQ Documentation](http://www.seleniumhq.org/docs/)
-### [WebdriverIO Documentation](https://webdriver.io/docs/gettingstarted.html)
+Got a question? Email [support@testmuai.com](mailto:support@testmuai.com) or chat with us 24x7 from our chat portal.
