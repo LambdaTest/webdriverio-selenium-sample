@@ -16,14 +16,19 @@ exports.config = {
   specs: ["../tests/specs/single_test.js"],
   exclude: [],
 
-  capabilities: [
-    {
-      "LT:Options": {
-      browserName: "chrome",
-      version: "latest",
-      name: "Test WebdriverIO Single",
-      build: "WebDriver Selenium Sample"
-    }
+    capabilities: [{
+    	"browserName": "Chrome",
+    	"browserVersion": "138",
+    	"LT:Options": {
+    		"username": "paulrajmail",
+    		"accessKey": "LT_xozkF4UN07H5UNJ9cHsni7TvSwPmTEBbnTXMOZPsPICgsLi",
+    		"visual": true,
+    		"video": true,
+    		"platformName": "Windows 10",
+    		"project": "Untitled",
+    		"w3c": true,
+    		"plugin": "node_js-webdriverio"
+    	}
     }],
   logLevel: "info",
   coloredLogs: true,

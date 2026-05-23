@@ -4,7 +4,8 @@
   "readme": "WebdriverIO Integration with [LambdaTest](https://www.lambdatest.com)",
   "description": "Selenium examples for WebdriverIO and LambdaTest Selenium Grid",
   "scripts": {
-    "test": "npm run single && npm run parallel && npm run multiple",
+   "test1": "npm run single && npm run parallel && npm run multiple",
+    "test": "npm run multiple",
     "single": "./node_modules/.bin/wdio conf/single.conf.js",
     "singleSmartUI": "./node_modules/.bin/wdio conf/singleSmartUI.conf.js",
     "parallel": "./node_modules/.bin/wdio conf/parallel.conf.js",
